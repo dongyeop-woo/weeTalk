@@ -16,8 +16,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     // 닉네임으로 사용자 찾기
     Optional<User> findByNickname(String nickname);
     
-    // 전화번호로 사용자 찾기
-    Optional<User> findByPhone(String phone);
     
     // UUID로 사용자 찾기
     Optional<User> findByUuid(UUID uuid);
@@ -25,9 +23,16 @@ public interface UserRepository extends JpaRepository<User, Long> {
     // 이메일 중복 확인
     boolean existsByEmail(String email);
     
-    // 닉네임 중복 확인
-    boolean existsByNickname(String nickname);
+    // 위톡 ID 중복 확인
+    boolean existsByWeeTalkId(String weeTalkId);
     
-    // 전화번호 중복 확인
-    boolean existsByPhone(String phone);
+    // 위톡 ID로 사용자 찾기
+    Optional<User> findByWeeTalkId(String weeTalkId);
+    
+    // 업무 위톡 ID 중복 확인
+    boolean existsByBusinessWeeTalkId(String businessWeeTalkId);
+    
+    // 업무 위톡 ID로 사용자 찾기
+    Optional<User> findByBusinessWeeTalkId(String businessWeeTalkId);
+    
 }
